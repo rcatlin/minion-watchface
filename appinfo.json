@@ -1,0 +1,30 @@
+{
+    "uuid": "2f86fa97-f7ef-4584-ba70-b8880893dc0a",
+    "shortName": "minion-watchface",
+    "longName": "minion-watchface",
+    "companyName": "RCatlin Labs",
+    "versionLabel": "1.0",
+    "sdkVersion": "3",
+    "targetPlatforms": ["aplite", "basalt"],
+    "watchapp": {
+        "watchface": true
+    },
+    "appKeys": {
+        "dummy": 0
+    },
+    "resources": {
+        "media": [
+            {
+                "type": "font",
+                "name": "FONT_PERFECT_DOS_48",
+                "file": "fonts/perfect-dos-vga.ttf",
+                "compatibility": "2.7"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MINION_BG",
+                "file": "images/minion-bg.png"
+            }
+        ]
+    }
+}
