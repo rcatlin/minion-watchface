@@ -35,8 +35,6 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 
 static void main_window_load(Window *window) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_load]");
-
     s_time_font = fonts_get_system_font(FONT_KEY_ROBOTO_BOLD_SUBSET_49);
 
     // Create GBitmap, then set to created BitmapLayer
@@ -70,29 +68,21 @@ static void main_window_load(Window *window) {
 
 
 static void main_window_unload(Window *window) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_unload] unloading window");
-
     // Destroy TextLayer
     text_layer_destroy(s_time_layer);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_unload] time layer destroyed");
 
     // Destroy GBitmap
     gbitmap_destroy(s_background_bitmap);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_unload] background bitmap destroyed");
 
     // Destroy BitmapLayer
     bitmap_layer_destroy(s_background_layer);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_unload] background layer destroyed");
 
     // Unregister with TickTimerService
     tick_timer_service_unsubscribe();
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main_window_unload] timer service unsubscribed");
 }
 
 
 static void init() {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:init]");
-
     // Create main Window element and assign to pointer
     s_main_window = window_create();
 
@@ -112,17 +102,12 @@ static void init() {
 
 
 static void deinit() {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:deinit] deinit");
-
     // Destroy Window
     window_destroy(s_main_window);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:deinit] window destroyed");
 }
 
 
 int main(void) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "[minion-watchface.c:main]");
-
     init();
     app_event_loop();
     deinit();
